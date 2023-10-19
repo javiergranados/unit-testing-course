@@ -1,0 +1,15 @@
+{
+  "name": "unit-testing-node",
+  "version": "0.1.0",
+  "author": "Javier Granados",
+  "main": "app.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "vitest": "^0.9.0"
+  }
+}
