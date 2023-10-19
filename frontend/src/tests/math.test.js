@@ -31,4 +31,32 @@ describe('Func add', () => {
 
     expect(sum).toBe(expectedResult)
   })
+
+  test('returns zero if the array is empty', () => {
+    const emptyArray = []
+    const expectedResult = 0
+
+    const sum = add(emptyArray)
+
+    expect(sum).toBe(expectedResult)
+  })
+
+  test('throws an error if no array is provided', () => {
+    const resultFn = () => {
+      add()
+    }
+
+    expect(resultFn).toThrow(/is not iterable/)
+  })
+
+  test('throws an error if more than one array as an argument is provided', () => {
+    const arg1 = 1
+    const arg2 = 2
+
+    const resultFn = () => {
+      add(1, 2)
+    }
+
+    expect(resultFn).toThrow(/is not iterable/)
+  })
 })
