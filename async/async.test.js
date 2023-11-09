@@ -1,5 +1,5 @@
 import { test, expect, describe } from 'vitest'
-import { generateToken, generateTokenPromise } from './app'
+import { generateToken, generateTokenPromise } from './async'
 
 describe('generateToken()', () => {
   test('token is generated correctly', (doneFn) => {
@@ -24,7 +24,6 @@ describe('generateTokenPromise()', () => {
 
     return expect(result).resolves.toBeDefined()
   })
-
 
   test('token generated is a string value', async () => {
     const arg = 'test@email.com'
