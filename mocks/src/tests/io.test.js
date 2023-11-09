@@ -3,6 +3,11 @@ import writeData from '../utils/io.js';
 import { promises as fs } from 'fs';
 
 vi.mock('fs')
+vi.mock('path', () => ({
+  default: {
+    join: vi.fn((...args) => args.pop()),
+  },
+}));
 
 describe('writeData()', () => {
   test('writeFile method is executed properly', () => {
@@ -11,6 +16,6 @@ describe('writeData()', () => {
 
     writeData(arg1, arg2)
 
-    expect(fs.writeFile).toBeCalled()
+    expect(fs.writeFile).toBeCalledWith(arg2, arg1)
   })
 })
