@@ -1,13 +1,16 @@
-import { test, expect, describe } from 'vitest'
+import { test, expect, describe, vi } from 'vitest'
 import writeData from '../utils/io.js';
+import { promises as fs } from 'fs';
+
+vi.mock('fs')
 
 describe('writeData()', () => {
-  test('writeFile method is executed properly', async () => {
+  test('writeFile method is executed properly', () => {
     const arg1 = 'Test data'
     const arg2 = 'test.txt'
 
-    const result = await writeData(arg1, arg2)
+    writeData(arg1, arg2)
 
-    expect(result).toBeUndefined()
+    expect(fs.writeFile).toBeCalled()
   })
 })
