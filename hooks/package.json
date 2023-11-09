@@ -1,0 +1,16 @@
+{
+  "name": "unit-testing-hooks",
+  "version": "0.1.0",
+  "author": "Javier Granados",
+  "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "vitest": "^0.9.2"
+  }
+}
