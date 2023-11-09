@@ -189,4 +189,7 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+# Dummy files
+mocks/data/**
+
 # End of https://www.toptal.com/developers/gitignore/api/git,macos,node

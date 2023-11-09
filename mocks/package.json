@@ -1,0 +1,16 @@
+{
+  "name": "unit-testing-mocks",
+  "version": "0.1.0",
+  "author": "Javier Granados",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "vitest": "^0.9.2"
+  }
+}
