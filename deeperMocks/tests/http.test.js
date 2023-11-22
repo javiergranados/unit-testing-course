@@ -1,8 +1,22 @@
 import { vi, describe, it, expect } from 'vitest';
 import { sendDataRequest } from '../util/http';
+import { HttpError } from '../util/errors';
 
 const PARAMS = { key: 'Test' }
 const MOCKED_RESPONSE = { key: 'Response Data' };
+
+const mockedErrorFetchImplementation = () => {
+  return new Promise((resolve) => {
+    resolve({
+      ok: false,
+      json() {
+        return new Promise((resolve, reject) => {
+          resolve(MOCKED_RESPONSE);
+        });
+      },
+    });
+  });
+}
 
 const mockedFetch = vi.fn((_url, options) => {
   return new Promise((resolve, reject) => {
@@ -41,5 +55,13 @@ describe('sendDataRequest()', () => {
     }
 
     expect(errorMessage).not.toBe('Not a string.');
+  });
+
+  it('should throw an HttpError in case of non-ok responses', () => {
+    mockedFetch.mockImplementationOnce(mockedErrorFetchImplementation);
+
+    const resultFn = () => sendDataRequest(PARAMS)
+
+    return expect(resultFn()).rejects.toBeInstanceOf(HttpError);
   });
 });
