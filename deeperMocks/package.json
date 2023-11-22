@@ -1,0 +1,17 @@
+{
+  "name": "unit-testing-deeper-mocks",
+  "version": "0.1.0",
+  "author": "Javier Granados",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "http-server": "^14.1.0"
+  },
+  "devDependencies": {
+    "happy-dom": "^2.55.0",
+    "vitest": "^0.9.3"
+  }
+}
